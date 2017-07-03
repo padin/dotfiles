@@ -69,4 +69,12 @@ The repository to save some dotfiles and system config.
 	
 14.安装git
 	sudo pacman -S git
+	
 
+另外可以使用shell脚本安装：
+	 wget https://github.com/padin/dotfiles/tarball/master -O - | tar xz
+	 
+	 cd <dir..>
+
+	 chmod +x & ./setup.sh
+	 
