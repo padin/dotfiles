@@ -41,8 +41,8 @@ create_partitions(){
 	print_title "create_partitions"
 	parted -s /dev/sda mklabel msdos
 	parted -s /dev/sda mkpart primary ext4 1M 1G
-	parted -s /dev/sda mkpart primary ext4 1G 20G
-	parted -s /dev/sda mkpart primary ext4 20G 100%
+	parted -s /dev/sda mkpart primary ext4 1G 4G
+	parted -s /dev/sda mkpart primary ext4 4G 100%
 	parted -s /dev/sda set 1 boot on
 	parted -s /dev/sda print
 }
