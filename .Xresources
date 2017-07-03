@@ -1,0 +1,7 @@
+xterm*faceName:Consolas:antialias=True:pixelsize=12
+xterm*faceNameDoublesize:WenQuanYi Zen Hei:antialias=True:pixelsize=12
+xterm*locale:zh_CN.UTF-8
+xterm*foreground:rgb:b2/b2/b2
+xterm*background:rgb:08/08/08
+
+

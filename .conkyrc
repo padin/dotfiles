@@ -1,0 +1,23 @@
+out_to_x no
+out_to_console yes
+background no
+double_buffer no
+update_interval 1
+total_run_times 0
+override_utf8_locale no
+short_units yes
+if_up_strictness address
+cpu_avg_samples 2
+
+TEXT
+${addr wlp3s0} | \
+U${upspeed wlp3s0}/s D${downspeed wlp3s0}/s|\
+R${diskio_read}/s W${diskio_write}/s|\
+cpu:${cpu cpu0}%|\
+${mem}|\
+B${battery BAT1}|\
+${time %Y-%m-%d %H:%M:%S}|\
+S${wireless_link_bar 1,4 wlp3s0}
+
+
+
