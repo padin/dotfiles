@@ -23,7 +23,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xterm 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -111,8 +111,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 #自动把打开的程序放到指定的工作区
-assign [class="Xterm"] 1
-assign [class="Chromium"] 2
+assign [class="Eclipse"] 3
+assign [class="Firefox"] 4
 assign [class="netease-cloud-music"] 5
 
 # reload the configuration file
