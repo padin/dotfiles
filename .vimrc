@@ -18,6 +18,8 @@ set wildmenu
 filetype on
 " 根据侦测到的不同类型加载对应的插件
 filetype plugin on
+" jk代替esc 
+inoremap jk <ESC>
 " ===========================代码缩进============================
 " 自适应不同语言的智能缩进
 filetype indent on
@@ -123,7 +125,7 @@ map <C-Tab> :bn<cr>
 map <C-S-Tab> :bp<cr>
 
 " ===========================代码检测============================
-execute pathogen#infect()
+" execute pathogen#infect()
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd','java']
 "golang

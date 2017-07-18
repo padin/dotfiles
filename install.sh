@@ -23,7 +23,7 @@ print_title() { #{{{
 
 install_package(){
 	print_title "install_package"
-	sudo pacman -S xorg xorg-xinit xf86-video-intel i3 conky lm_sensors firefox eclipse-java xterm dmenu ranger wget wqy-zenhei wqy-microhei alsa-utils pepper-flash netesase-cloud-music fcitx-sogoupinyin fcitx-im
+	sudo pacman -S xorg xorg-xinit xf86-video-intel i3 conky lm_sensors firefox eclipse-java xterm dmenu ranger wget wqy-zenhei wqy-microhei alsa-utils pepper-flash netease-cloud-music fcitx-sogoupinyin fcitx-im pulseaudio pulseaudio-alsa hydorgen
 }
 
 config_system(){
