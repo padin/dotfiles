@@ -1,23 +1,15 @@
 #!/bin/bash
 
 print_line() {
-
 	printf "%$(tput cols)s\n"|tr ' ' '-'
-
 }
 
 print_title() {
-
 	clear
-
 	print_line
-
 	echo -e "# ${Bold}$1${Reset}"
-
 	print_line
-
 	echo ""
-
 }
 arch_chroot() {
 	arch-chroot /mnt /bin/bash -c "${1}"
