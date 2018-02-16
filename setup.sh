@@ -1,12 +1,12 @@
 #!/bin/bash
 
-print_line() { #{{{
+print_line() {
 
 	printf "%$(tput cols)s\n"|tr ' ' '-'
 
-} #}}}
+}
 
-print_title() { #{{{
+print_title() {
 
 	clear
 
@@ -18,14 +18,10 @@ print_title() { #{{{
 
 	echo ""
 
-} #}}}
-
-arch_chroot() { #{{{
-
+}
+arch_chroot() {
 	arch-chroot /mnt /bin/bash -c "${1}"
 }
-
-#}}}
 
 #替换仓库列表
 update_mirrorlist(){
@@ -40,9 +36,9 @@ update_mirrorlist(){
 create_partitions(){
 	print_title "create_partitions"
 	parted -s /dev/sda mklabel msdos
-	parted -s /dev/sda mkpart primary ext4 1M 1G
-	parted -s /dev/sda mkpart primary ext4 1G 4G
-	parted -s /dev/sda mkpart primary ext4 4G 100%
+	parted -s /dev/sda mkpart primary ext4 1M 512M
+	parted -s /dev/sda mkpart primary ext4 512M 20G
+	parted -s /dev/sda mkpart primary ext4 20G 100%
 	parted -s /dev/sda set 1 boot on
 	parted -s /dev/sda print
 }
@@ -68,18 +64,25 @@ install_baseSystem(){
 	print_title "install_baseSystem"
 	pacstrap /mnt base base-devel iw wpa_supplicant dialog netctl vim grub screenfetch
 }
+
 #生成标卷文件表
 generate_fstab(){
 	print_title "generate_fstab"
 	genfstab -U /mnt >> /mnt/etc/fstab
 }
-#配置系统时间地区
+
+#配置系统时间,地区和语言
 configure_system(){
 	print_title "configure_system"
-	arch_chroot "ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/locatime"
+	arch_chroot "ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime"
 	arch_chroot "hwclock --systohc --utc"
 	arch_chroot "mkinitcpio -p linux"
+	echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+	echo "zh_CN.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+	arch_chroot "locale-gen"
+	echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
 }
+
 #添加本地域名
 configure_hostname(){
 
