@@ -54,7 +54,7 @@ mount_partitions(){
 #最小安装
 install_baseSystem(){
 	print_title "install_baseSystem"
-	pacstrap /mnt base base-devel iw wpa_supplicant dialog netctl vim grub screenfetch
+	pacstrap /mnt base base-devel iw wireless_tools wpa_supplicant dialog netctl vim grub screenfetch git
 }
 
 #生成标卷文件表

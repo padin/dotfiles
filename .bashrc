@@ -16,4 +16,4 @@ export M2_HOME=/opt/maven
 export PATH=$PATH:$JAVA_HOME/bin:$CLASSPATH:$M2_HOME
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash

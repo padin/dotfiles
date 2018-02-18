@@ -111,10 +111,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 #自动把打开的程序放到指定的工作区
-assign [class="Mysql-workbench"] 2
-assign [class="Eclipse"] 3
-assign [class="Firefox"] 4
-assign [class="netease-cloud-music"] 5
+#assign [class="Mysql-workbench"] 2
+#assign [class="Eclipse"] 3
+#assign [class="Firefox"] 4
+#assign [class="netease-cloud-music"] 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -155,5 +155,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-        status_command conky -c ~/.config/conky/.conkyrc
+        status_command conky -c ~/.conkyrc
 }
