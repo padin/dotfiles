@@ -14,9 +14,17 @@ print_title() {
 #配置网络
 config_netctl(){
     print_title "config_network"
-	sudo wifi-menu
-    sudo nectl start wlp3s0-pan
-	sudo netctl enable wlp3s0-pan
+    sudo mk /etc/netctl/wireless-wqa
+    sudo echo "Description='A simple WPA encrypted wireless connection'" >> /etc/netctl/wireless-wqa
+    sudo echo "Interface=wlp3s0" >> /etc/netctl/wireless-wqa
+    sudo echo "Connection=wireless" >> /etc/netctl/wireless-wqa
+    sudo echo "Security=wpa" >> /etc/netctl/wireless-wqa
+    sudo echo "IP=dhcp" >> /etc/netctl/wireless-wqa
+    sudo echo "ESSID='pan'" >> /etc/netctl/wireless-wqa
+    sudo echo "Key='panding123'" >> /etc/netctl/wireless-wqa
+    
+    sudo netctl start wireless-wqa 
+	sudo netctl enable wlp3s0-wqa
 }
 #配置软件仓库
 install_yaourt(){
@@ -35,7 +43,7 @@ install_font(){
 	sudo pacman -S ttf-dejavu wqy-zenhei wqy-microhei
 }
 #安装浏览器
-install_firfox(){
+install_firefox(){
 	print_title "install_firfox"
 	sudo pacman -S libx264 firefox ttf-ubuntu-font-family pepper-flash
 }
@@ -66,7 +74,7 @@ install_fcitx(){
 #安装常用工具
 install_utils(){
     print_title "install_utils"
-    sudo pacman -S ranger wget alsa-utils 
+    sudo pacman -S ranger wget alsa-utils zip 
     sudo pacman -Syu
     sudo pacman -S netease-cloud-music
     sudo pacman -S jdk8
@@ -81,5 +89,5 @@ install_font
 install_xorg
 install_i3
 install_fcitx
-install_firfox
+install_firefox
 install_utils

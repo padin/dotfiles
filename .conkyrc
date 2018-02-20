@@ -16,7 +16,7 @@ R${diskio_read}/s W${diskio_write}/s|\
 cpu:${cpu cpu0}%|\
 ${mem}|\
 B${battery BAT1}|\
-${time %Y-%m-%d %H:%M:%S}|\
+${time %m-%d %H:%M}|\
 S${wireless_link_bar 1,4 wlp3s0}|\
 T:${exec sensors | grep 'Core 0' | cut -c 17,18}C
 
